@@ -1,5 +1,6 @@
 require "rubygems"
 require "sinatra"
+require "haml"
 class WorldChat < Sinatra::Application
 	enable :sessions
 	$messages =[]
