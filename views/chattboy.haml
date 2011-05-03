@@ -1,0 +1,23 @@
+<meta http-equiv="refresh"
+content="10">
+%h1 Worldchat
+%p Welcome to Worldchat!
+
+%form{:method => "post", :action => "/chatt"}
+	%table
+		%tr
+			%td Name:
+			%td
+				%input{:name => "name", :value => session[:name]}
+		%tr
+			%td Message:
+			%td
+				%input{:name => "message"}
+				%input{:type => "submit",:value => "Send"}
+		%tr
+			%td 
+			%td
+				%input{:type => "submit",:value => "Delete"}
+
+- $messages.each do |message|
+	%p= message
