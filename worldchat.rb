@@ -11,3 +11,6 @@ session[:name] = params[:name]
 	#{params[:message]}"
 redirect "/"
 end
+get "/style.css" do
+sass :style 
+end
