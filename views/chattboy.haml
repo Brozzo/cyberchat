@@ -1,5 +1,5 @@
-%h1 Cyberchatt
-%p Welcome to Cyberchat!
+%h1 Cyberchat 
+%p.hej Welcome to Cyberchat!!!
 %form#post
 	%table
 		%tr
@@ -12,6 +12,5 @@
 				%input{:name => "message"}
 				%input{:type => "submit",:value => "Send"}
 	#message_area
-- $messages.each do |message|
+- $messages.reverse.each do |message|
 	%p= message
-	
