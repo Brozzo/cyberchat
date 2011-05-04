@@ -1,8 +1,6 @@
-<meta http-equiv="refresh"
-content="10">
 %h1 Cyberchatt
 %p Welcome to Cyberchat!
-%form{:method => "post", :action => "/chatt"}
+%form#post
 	%table
 		%tr
 			%td Name:
@@ -13,5 +11,7 @@ content="10">
 			%td
 				%input{:name => "message"}
 				%input{:type => "submit",:value => "Send"}
+	#message_area
 - $messages.each do |message|
 	%p= message
+	
