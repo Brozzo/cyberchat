@@ -4,6 +4,7 @@ $(document).ready (function() {
 		function(response){
 			$("#message_area").prepend(response)
 		})
+		$("#mess").value("")
 		e.preventDefault()
 	})
 })
