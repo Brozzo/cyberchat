@@ -9,7 +9,7 @@ $(document).ready (function() {
 	$("#post").submit(function(e){
   	e.preventDefault()
 		$.post("/chat", $(this).serialize() )
-		$("#mess").value("")
+		$("#mess").val("")
 	})
 	setInterval('fetchMessages()',1000)	
 })
