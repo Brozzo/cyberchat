@@ -11,6 +11,7 @@ $(document).ready (function() {
 		$.post("/chat", $(this).serialize() )
 		$("#mess").val("")
 	})
-	setInterval('fetchMessages()',1000)	
+	setInterval('fetchMessages()',100
+)	
 })
 
