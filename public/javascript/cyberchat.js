@@ -1,11 +1,16 @@
+function fetchMessages(){
+	$.get("/fetch_messages",
+	function(response){
+		$('#message_area').empty()
+			$('#message_area').prepend(response)
+	})
+}
 $(document).ready (function() {
 	$("#post").submit(function(e){
-		$.post("/chat",$(this).serialize(),
-		function(response){
-			$("#message_area").prepend(response)
-		})
-		$("#mess").value("")
 		e.preventDefault()
+		$.post("/chat",$(this).serialize(),function())
+		$("#mess").value("")
 	})
+	setInterval('fetchMessages()',1000)	
 })
 
