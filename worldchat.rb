@@ -19,7 +19,7 @@ class WorldChat < Sinatra::Application
 		"<p>#{message}</p>"
 	end
 	
-	get "/style.css" do
+	get "/style2.css" do
 		sass :style 
 	end
 end
