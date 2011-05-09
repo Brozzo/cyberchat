@@ -1,9 +1,12 @@
 !!!
 %html
 	%head
-		%link{:type =>"text/css",:href => "style3.css",:rel => "stylesheet"} 
-		%title Cyberchat
-		%script{:src => "https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"}
-		%script{:src => "/javascript/cyberchat.js"}
+		%embed{:src => "fonts/chintzy cpu brk"}/
 	%body
-		= yield
+%h1
+	%link{:type =>"text/css",:href => "style.css",:rel => "stylesheet"}
+	%title Cyberchat
+	%script{:src => "https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"}
+	%script{:src => "/javascript/cyberchat.js"}
+%body
+	= yield

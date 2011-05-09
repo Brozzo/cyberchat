@@ -14,12 +14,13 @@ class WorldChat < Sinatra::Application
 	
 	post "/chat" do
 		session[:name] = params[:name]
-		message = "#{session[:name]} says: #{params[:message]}"
-		$messages << message
+		session[:messages] = params[:messages]
+		params[:messages] = "#{session[:name]} says: #{params[:message]}"
+		$messages << params[:messages]
 		"<p>#{message}</p>"
 	end
 	
-	get "/style2.css" do
+	get "/style.css" do
 		sass :style 
 	end
 end
