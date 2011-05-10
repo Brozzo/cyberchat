@@ -14,4 +14,4 @@ $(document).ready (function() {
 	setInterval('fetchMessages()',1000
 )	
 })
-
+/* postgress://pzyfkcjkjl:tZxQ706GPZt8DkUkFD0w@ec2-50-19-113-83.compute-1.amazonaws.com/pzyfkcjkjl */
