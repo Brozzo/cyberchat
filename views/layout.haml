@@ -1,12 +1,11 @@
-!!!
 %html
 	%head
-		%link{:href => "/favicon1.ico", :rel => "favicon1"}/	
+		%link{:href => "localhost9292/favicon1.ico", :rel => "favicon1.ico", :type => "favicon1.ico"}/	
 	%body
-%h1
-	%link{:type =>"text/css",:href => "style.css",:rel => "stylesheet"}
-	%title Cyberchat
-	%script{:src => "https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"}
-	%script{:src => "/javascript/cyberchat.js"}
-%body
-	= yield
+		%h1
+			%link{:type =>"text/css",:href => "style.css",:rel => "stylesheet"}
+			%title Cyberchat
+			%script{:src => "https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"}
+			%script{:src => "/javascript/cyberchat.js"}
+	%body
+		= yield
