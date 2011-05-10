@@ -1,15 +1,17 @@
-%img{:src => "images/cyberchat1.jpg"}/
+%h1
+	%img{:src => "images/cyberchat1.jpg"}/
 %p.welcome Welcome to Cyberchat!!!
 %form#post
-	%table
+	%p.link
+		<a href="http://img.dafont.com/dl/?f=chintzy_cpu_brk">"Download and install this font!"</a>
+	%table.knapp
 		%tr
 			%td Name:
 			%td
 				%input{:name => "name", :value => session[:name]}
-				<a href="http://img.dafont.com/dl/?f=chintzy_cpu_brk">"Download and install this font!"</a>
 		%tr
 			%td Message:
 			%td
 				%input#mess{:name => "message"}
 				%input{:type => "submit",:value => "Send"}
-	#message_area
+	#message_area.knapp
