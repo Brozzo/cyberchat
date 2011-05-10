@@ -1,9 +1,5 @@
 class WorldChat < Sinatra::Application
 	enable :sessions
-	$ heroku addons
-	logging:expanded
-	newrelic:gold
-	shared-database:5mb
 	$messages =[]
 	
 	get "/" do
