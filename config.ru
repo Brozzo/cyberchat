@@ -1,5 +1,5 @@
 require "bundler"
 Bundler.require
 
-require "./worldchat.rb"
-run WorldChat
+require "./cyberchat.rb"
+run CyberChat

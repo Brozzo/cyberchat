@@ -1,4 +1,10 @@
-class WorldChat < Sinatra::Application
+require "rubygems"
+require "data_mapper"
+DB = DataMapper.setup(:default, 'postgres://localhost/')
+class Post
+	include DataMapper::Resource
+end
+class CyberChat < Sinatra::Application
 	enable :sessions
 	$messages =[]
 	
@@ -11,14 +17,12 @@ class WorldChat < Sinatra::Application
 		"<p>#{m}</p>"
 		end.join
 	end
-	
-	post "/chat" do
-		session[:name] = params[:name]
-		session[:messages] = params[:messages]
-		params[:messages] = "#{session[:name]} says: #{params[:message]}"
-		$messages << params[:messages]
-		"<p>#{message}</p>"
-	end
+		post "/chat" do
+			session[:name] = params[:name]
+			message = "#{session[:name]} says: #{params[:message]}"
+			$messages << message
+			"<p>#{message}</p>"
+		end
 	
 	get "/style.css" do
 		sass :style 
