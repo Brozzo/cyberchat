@@ -1,3 +1,10 @@
+$LOAD_PATH << "./"
+require "rubygems"
+require "data_mapper"
+require "post.rb"
+require "chatroom.rb"
+DB = DataMapper.setup(:default, 'postgres://localhost/pzyfkcjkjl')
+
 class WorldChat < Sinatra::Application
 	enable :sessions
 	$messages =[]
