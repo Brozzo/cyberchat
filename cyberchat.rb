@@ -28,3 +28,7 @@ class CyberChat < Sinatra::Application
 		sass :style 
 	end
 end
+
+
+
+'postgress://pzyfkcjkjl:tZxQ706GPZt8DkUkFD0w@ec2-50-19-113-83.compute-1.amazonaws.com/pzyfkcjkjl')
