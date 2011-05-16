@@ -4,14 +4,14 @@
 %form#post
 	%p.link
 		<a href="http://img.dafont.com/dl/?f=chintzy_cpu_brk">"Download and install this font!"</a>
-	%table.knapp
+	%table
 		%tr
-			%td Name:
+			%td.text1 Name:
 			%td
-				%input{:name => "name", :value => session[:name]}
+				%input.input1{:name => "name", :value => session[:name], :placeholder => "your name"}
 		%tr
-			%td Message:
+			%td.text2 Message:
 			%td
-				%input#mess{:name => "message"}
-				%input.try{:type => "submit",:value => "Send"}
-	#message_area.knapp
+				%input.input2#mess{:name => "message", :placeholder => "message"}
+				%input.send{:type => "submit",:value => "SEND"}
+	#message_area.area
