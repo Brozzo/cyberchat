@@ -15,10 +15,10 @@ class CyberChat < Sinatra::Application
 			session[:name] = params[:name]
 			message = "#{session[:name].capitalize} says: #{params[:message]}"
 			added_time = ""
-			hour = Time.now.hour
-			minute = Time.now.min
+			hour = DateTime.now.hour
+			minute = DateTime.now.min
 			if minute == 0 or minute == 1 or minute == 2 or minute == 3 or minute == 4 or minute == 5 or minute == 6 or minute == 7 or minute == 8 or minute == 9 
-				tiden = " " + hour.localtime.to_s + ":" + "0" + minute.localtime.to_s
+				tiden = " " + hour.to_s + ":" + "0" + minute.to_s
 			else
 				tiden = " " + hour.to_s + ":" + minute.to_s
 			end
