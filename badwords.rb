@@ -1,0 +1,1 @@
+@@badnames = ["kuk", "fitt", "fuck", "knull", "snopp"]

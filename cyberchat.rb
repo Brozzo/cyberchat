@@ -1,3 +1,4 @@
+require "./badwords.rb"
 class CyberChat < Sinatra::Application
 	enable :sessions
 	$messages =[]
@@ -13,10 +14,14 @@ class CyberChat < Sinatra::Application
 	end
 		post "/chat" do
 			session[:name] = params[:name]
-			message = "#{session[:name].capitalize} says: #{params[:message]}"
 			added_time = ""
-			hour = DateTime.now.hour
-			minute = DateTime.now.min
+			hour = Time.now.hour
+			minute = Time.now.min
+			if @@badnames.any? {|badnames| session[:name].downcase.include? badnames}
+				message = "Anonymos says: #{params[:message]}"
+			else
+				message = "#{session[:name].capitalize} says: #{params[:message]}"
+			end
 			if minute == 0 or minute == 1 or minute == 2 or minute == 3 or minute == 4 or minute == 5 or minute == 6 or minute == 7 or minute == 8 or minute == 9 
 				tiden = " " + hour.to_s + ":" + "0" + minute.to_s
 			else
