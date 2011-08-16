@@ -1,1 +1,1 @@
-@@badnames = []
+@@badnames = ["kuk", "fitt", "bög", "hora"]
