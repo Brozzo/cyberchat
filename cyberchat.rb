@@ -26,9 +26,9 @@ class CyberChat < Sinatra::Application
 			elsif hour == 15 or hour == 16 or hour == 17 or hour == 18 or hour == 19 or hour == 20 or hour == 21 or hour == 22 or hour == 23
 				hour = hour - 15
 			if minute == 0 or minute == 1 or minute == 2 or minute == 3 or minute == 4 or minute == 5 or minute == 6 or minute == 7 or minute == 8 or minute == 9 
-				tiden = hour.to_s + ":" + "0" + minute.to_s
+				tiden = " " + hour.to_s + ":" + "0" + minute.to_s
 			else
-				tiden = hour.to_s + ":" + minute.to_s
+				tiden = " " + hour.to_s + ":" + minute.to_s
 			end
 			$messages << message + tiden
 			"<p>#{message}</p>"
