@@ -31,7 +31,7 @@ class CyberChat < Sinatra::Application
 			else
 				tiden = " " + hour.to_s + ":" + minute.to_s
 			end
-			$messages << message + "\n" + tiden
+			$messages << message + tiden
 			"<p>#{message}</p>"
 		end
 		
