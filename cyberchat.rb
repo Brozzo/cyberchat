@@ -22,36 +22,21 @@ class CyberChat < Sinatra::Application
 			else
 				message = "#{session[:name].capitalize} says: #{params[:message]}"
 			end
-			if hour == 0 or if hour == 1 or if hour == 2 or if hour == 3 or if hour == 4 or if hour == 5 or if hour == 6 or if hour == 7 or if hour == 8 or if hour == 9 or if hour == 10 or if hour == 11 or if hour == 12 or if hour == 13 or if hour == 14
+			if hour == 0 or hour == 1 or hour == 2 or hour == 3 or hour == 4 or hour == 5 or hour == 6 or hour == 7 or hour == 8 or hour == 9 or hour == 10 or hour == 11 or hour == 12 or hour == 13 or hour == 14
 				hour = hour + 9
-			elsif hour == 15
-				hour = 0
-			elsif hour == 16
-				hour = 1
-			elsif hour == 17
-				hour = 2
-			elsif hour == 18
-				hour = 3
-			elsif hour == 19
-				hour = 4
-			elsif hour == 20
-				hour = 5
-			elsif hour == 21
-				hour = 6
-			elsif hour == 22
-				hour = 7
-			elsif hour == 23
-				hour = 8
+			elsif hour == 15 or hour == 16 or hour == 17 or hour == 18 or hour == 19 or hour == 20 or hour == 21 or hour == 22 or hour == 23
+				hour = hour - 15
 			if minute == 0 or minute == 1 or minute == 2 or minute == 3 or minute == 4 or minute == 5 or minute == 6 or minute == 7 or minute == 8 or minute == 9 
 				tiden = " " + hour.to_s + ":" + "0" + minute.to_s
 			else
 				tiden = " " + hour.to_s + ":" + minute.to_s
 			end
-			$messages << message + "/n" + tiden
+			$messages << message + "\n" + tiden
 			"<p>#{message}</p>"
 		end
 		
 	get "/style.css" do
 		sass :style 
 	end
+end
 end
