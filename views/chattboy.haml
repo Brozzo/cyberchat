@@ -5,14 +5,8 @@
 	%p
 		%a.link{:href => "http://img.dafont.com/dl/?f=chintzy_cpu_brk"} 'Download and install this font!'
 		%a.link2{:href => "http://www.dafont.com/digital-7.font"} 'Download and install this font!'
-	%table
-		%tr
-			%td.text1 Name:
-			%td
-				%input.input1{:name => "name", :value => session[:name], :placeholder => "your name"}
-		%tr
-			%td.text2 Message:
-			%td
-				%input.input2#mess{:name => "message", :placeholder => "message"}
-				%input.send{:type => "submit", :value => "SEND"}
+
+		%input.input1{:name => "name", :value => session[:name], :placeholder => "your name"}
+		%input.input2#mess{:name => "message", :placeholder => "message"}
+		%input.send{:type => "submit", :value => "SEND"}
 	#message_area.area
