@@ -5,10 +5,6 @@ class CyberChat < Sinatra::Application
 	get "/" do
 		haml :chattboy
 	end
-	get "/haml1" do
-		@random = rand(2)
-		haml :haml1
-	end
 	get "/fetch_messages" do
 		$messages.reverse.map do |m|
 		"<p>#{m}</p>"
