@@ -2,7 +2,7 @@ function fetchMessages(){
 	$.get("/fetch_messages",
 	function(response){
 		$('#message_area').empty()
-		$('#message_area').prepend( "<div> <button type=\"button\">delete</button>" + response + "</div>" )
+		$('#message_area').prepend(response)
 	})
 }
 $(document).ready (function() {
