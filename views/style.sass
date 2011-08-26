@@ -1,10 +1,22 @@
 body
+	@font-face
+		font-family: "chintzy cpu brk"
+		src: url(fonts/chintzy.ttf)
+	@font-face
+		font-family: "Digital-7"
+		src: url(fonts/Digital-7.ttf)
+	@font-face
+		font-family: "Product_Design"
+		src: url(fonts/Product_Design.ttf)
 	h1
 		position: absolute
 		left: 0px
-		top: -100px
-		font-size: 900%
+		top: -30px
+		-moz-box-shadow: -10px -2px 8px #008000
+		&:hover
+			-moz-box-shadow: -10px -2px 8px #66CC66
 	.welcome
+		color: #000000
 		position: absolute
 		left: 20px
 		top: 80px
@@ -15,7 +27,7 @@ body
 		position: absolute
 		left: 20px
 		top: 250px
-		font-family: "Digital-7"
+		font-family: "Product_Design"
 		color: #00FF00
 		text-shadow: 0px -3px 5px #00FFFF
 	.link
@@ -52,18 +64,28 @@ body
 		text-shadow: 0px 10px 8px #CC6600
 		background: -moz-linear-gradient(center top, #00FF00, #008000 25%, #2F4F4F 50%, #006400 75%, #00FF00)
 		-moz-box-shadow: 1px 1px 5px #2F4F4F
-		-moz-border-radius-topleft: 0px
+		-moz-border-radius-topleft: 2px
 		-moz-border-radius-topright: 10px
 		-moz-border-radius-bottomright: 10px
-		-moz-border-radius-bottomleft: 0px
-		-webkit-border-top-left-radius: 0px
-		-webkit-border-top-right-radius: 0px
-		-webkit-border-bottom-right-radius: 0px
-		-webkit-border-bottom-left-radius: 0px
+		-moz-border-radius-bottomleft: 2px
+		-webkit-border-top-left-radius: 2px
+		-webkit-border-top-right-radius: 10px
+		-webkit-border-bottom-right-radius: 10px
+		-webkit-border-bottom-left-radius: 2px
 		&:hover
+			position: absolute
+			top: 196px
+			left: 162px
+			width: 52px
+			height: 37px
 			color: #ADFF2F
 			background: -moz-linear-gradient(center top, #FFD700, #008000 25%, #2F4F4F 50%, #006400 75%, #7FFF00)
 		&:active
+			position: absolute
+			top: 203px
+			left: 162px
+			width: 50px
+			height: 30px
 			color: #000000
 			background: -moz-linear-gradient(center top, #FF0000, #800000 25%, #2F4F4F 50%, #8B0000 75%, #DC143C)
 	.input1
@@ -77,6 +99,7 @@ body
 		background: -webkit-gradient(linear, right center, left center, from(#000000), to(#000033))
 		text-shadow: 0px -5px 10px #FF6600
 		border: 1px
+		-moz-box-shadow: -5px -5px 5px #000000
 		-moz-border-radius-topleft: 5px
 		-moz-border-radius-topright: 5px
 		-moz-border-radius-bottomright: 0px
@@ -96,5 +119,5 @@ body
 		-moz-border-radius-topright: 0px
 		-moz-border-radius-bottomright: 5px
 		-moz-border-radius-bottomleft: 5px
-	background-image: url('images/cyber-global.jpg')
 	color: #00FF00
+	background-image: url('images/cyber-global.jpg')	
