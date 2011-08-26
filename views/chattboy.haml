@@ -1,3 +1,4 @@
+%body.background{:background => "images/cyber-global.jpg"}
 %h1
 	%img{:src => "images/cyberchat1.jpg"}
 %p.welcome Welcome to Cyberchat!!!
@@ -7,7 +8,7 @@
 		%a.link2{:href => "http://www.dafont.com/digital-7.font"} 'Download and install this font!'
 
 		%input.input1{:name => "name", :value => session[:name], :maxlength => "25", :placeholder => "your name"}
-		%input.input2#mess{:name => "message", :maxlength => "140", :placeholder => "message"}
+		%input.input2#mess{:name => "message", :maxlength => "120", :placeholder => "message"}
 		%input.send{:type => "submit", :value => "SEND"}
 	#message_area.area
 %html
@@ -19,5 +20,9 @@
 	@font-face {
 	font-family: "chintzy cpu brk";
 	src: url(fonts/chintzy.ttf);
+	}
+	@font-face {
+	font-family: "Space Age";
+	src: url(fonts/space_age.ttf);
 	}
 	</style>
