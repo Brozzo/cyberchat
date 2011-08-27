@@ -3,14 +3,17 @@ class CyberChat < Sinatra::Application
 	enable :sessions
 	$messages =[]
 	get "/" do
-		haml :chattboy
+		haml :startpage
+	end
+	get "/chat" do
+		haml :chat
 	end
 	get "/fetch_messages" do
 		$messages.reverse.map do |m|
 		"<p>#{m}</p>"
 		end.join 
 	end
-		post "/chat" do
+		post "/messages" do
 			session[:name] = params[:name]
 			if @@badnames.any? {|badnames| session[:name].downcase.include? badnames}
 				message = "Anonymos says: #{params[:message]}"

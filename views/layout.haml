@@ -1,11 +1,10 @@
-%html
-	%head
-		%link{:href => "/favicon.ico", :rel => "shortcut icon", :type => "image/x-icon"}/
-	%body
-		%h1
-			%link{:type =>"text/css",:href => "style.css",:rel => "stylesheet"}
-			%title Cyberchat
-			%script{:src => "https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"}
-			%script{:src => "/javascript/cyberchat.js"}
-	%body
-		= yield
+%head
+	%link{:href => "/favicon.ico", :rel => "shortcut icon", :type => "image/x-icon"}/
+%body
+	%h1
+		%link{:type =>"text/css",:href => "style.css",:rel => "stylesheet"}
+		%title Cyberchat
+		%script{:src => "https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"}
+		%script{:src => "/javascript/cyberchat.js"}
+%body
+	= yield

@@ -8,7 +8,7 @@ function fetchMessages(){
 $(document).ready (function() {
 	$("#post").submit(function(e){
   	e.preventDefault()
-		$.post("/chat", $(this).serialize() )
+		$.post("/messages", $(this).serialize() )
 		$("#mess").val("")
 	})
 	setInterval('fetchMessages()',1000
