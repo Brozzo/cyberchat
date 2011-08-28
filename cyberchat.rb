@@ -32,8 +32,10 @@ class CyberChat < Sinatra::Application
 			else
 				tiden = hour.to_s + ":" + minute.to_s
 			end
+			if params[:message].length != 0 and session[:name].length != 0
 				$messages << message + " " + tiden
 				"<p>#{message}</p>"
+			end
 		end
 	get "/style.css" do
 		sass :style 
