@@ -6,7 +6,7 @@ class CyberChat < Sinatra::Application
 		haml :startpage
 	end
 	get "/chat" do
-		haml :chat
+		haml:chat
 	end
 	get "/fetch_messages" do
 		$messages.reverse.map do |m|
