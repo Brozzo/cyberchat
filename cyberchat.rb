@@ -22,12 +22,12 @@ class CyberChat < Sinatra::Application
 			end
 			hour = Time.now.hour
 			minute = Time.now.min
-			if hour == 0..14
+			if hour == (0..14)
 				hour = hour + 9
-			elsif hour == 15..23
+			elsif hour == (15..23)
 				hour = hour - 15
 			end
-			if minute == 0..9
+			if minute == (0..9)
 				tiden = hour.to_s + ":" + "0" + minute.to_s
 			else
 				tiden = hour.to_s + ":" + minute.to_s
