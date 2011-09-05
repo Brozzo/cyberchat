@@ -1,4 +1,3 @@
-%body{:background => "images/cyber-global.jpg"}
 %h1.cyber
 	%img{:src => "images/cyberchat4.jpg"}
 %form#post
@@ -9,6 +8,11 @@
 	#message_area.area
 %html
 	<style type="text/css">
+	body {
+	background-image:url('http://cyberchat.heroku.com/images/cyber-global.jpg');
+	background-repeat:repeat-y;
+	background-color:#000000;
+	}
 	@font-face {
 	font-family: "Digital-7";
 	src: url(fonts/digital-7.ttf);
