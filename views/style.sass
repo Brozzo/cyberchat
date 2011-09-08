@@ -6,6 +6,9 @@ body
 		box-shadow: -28px -2px 8px #008000
 		-moz-box-shadow: -28px -2px 8px #008000
 		-webkit-box-shadow: -28px -2px 8px #008000
+		-webkit-transition: all 1s ease-in-out
+		-moz-transition: all 1s ease-in-out
+		-o-transition: all 1s ease-in-out
 		&:hover
 			
 			box-shadow: -23px 2px 8px #00FFCC
@@ -22,6 +25,9 @@ body
 		box-shadow: -28px -2px 8px #008000
 		-moz-box-shadow: -28px -2px 8px #008000
 		-webkit-box-shadow: -28px -2px 8px #008000
+		-webkit-transition: all 1s ease-in-out
+		-moz-transition: all 1s ease-in-out
+		-o-transition: all 1s ease-in-out
 		&:hover
 
 			box-shadow: -23px 2px 8px #00FFCC
@@ -39,6 +45,9 @@ body
 		font-family: "chintzy cpu brk"
 		font-size: 300%
 		text-shadow: 0px -5px 5px #00CC00
+		-webkit-transition: all 1s ease-in-out
+		-moz-transition: all 1s ease-in-out
+		-o-transition: all 1s ease-in-out
 		&:hover
 			text-shadow: 0px -5px 5px #800000	
 	.area
@@ -51,7 +60,7 @@ body
 		text-shadow: 0px 0px 5px #800000
 	.link
 		position: absolute
-		left: 40px
+		left: 200px
 		top: 400px
 		font-family: "DJB BLUEPRINT"
 		font-size: 25
@@ -60,16 +69,27 @@ body
 		text-shadow: 0px 0px 5px #CCCC00
 		background-color: #000000
 		border: 0px
+		-webkit-transform: rotate(330deg)
+		-moz-transform: rotate(330deg)
+		-o-transform: rotate(330deg)
+		-webkit-transition: all 1s ease-in
+		-moz-transition: all 1s ease-in
+		-o-transition: all 1s ease-in
 		&:hover
 			color: #300000
 			font-style: italic
+			-moz-transform: rotate(360deg) scale(2)
+			-o-transform: rotate(360deg) scale(2)
+			-webkit-transform: rotate(360deg) scale(2)
 		&:active
 			color: #FFFF00
 			text-shadow: 0px 0px 5px #800000
 			font-style: italic
 			text-decoration: underline
-			left: 39
-			
+			left: 199
+			-moz-transform: scale(1)
+			-webkit-transform: scale(1)
+			-o-transform: scale(1)
 	.send
 		position: absolute
 		top: 147px
@@ -80,12 +100,12 @@ body
 		font-family: "chintzy cpu brk"
 		font-size: 15
 		color: #FFFFFF
-		text-shadow: 0px 10px 8px #CC6600
 		background: -moz-linear-gradient(center top, #00FF00, #008000 25%, #2F4F4F 50%, #006400 75%, #00FF00)
-		background: -webkit-gradient(linear, left top, right bottom, from(red), color-stop(14%, orange), to(violet))
+		background: -webkit-gradient(linear, center top, center bottom, from(#00FF00), color-stop(25%, #008000), color-stop(50%, #2F4F4F), color-stop(75%, #006400), to(#00FF00))
+		background: -o-linear-gradient(top,rgb(0,255,0),rgb(0,128,0) 50%,rgb(47,79,79) 75%,rgb(0,204,0))
 		-moz-box-shadow: 1px 1px 5px #2F4F4F
+		-webkit-box-shadow: 1px 1px 5px #2F4F4F 
 		box-shadow: 1px 1px 5px #2F4F4F
-		-webkit-box-shadow: 1px 1px 5px #2F4F4F
 		-moz-border-radius-topleft: 2px
 		-moz-border-radius-topright: 10px
 		-moz-border-radius-bottomright: 10px
@@ -101,7 +121,8 @@ body
 			width: 54px
 			height: 38px
 			color: #ADFF2F
-			background: -webkit-gradient(linear, right center, left center, from(#008000), to(#FF0000))			
+			background: -o-linear-gradient(top,rgb(255,215,0),rgb(0,128,0) 50%,rgb(47,79,79) 75%,rgb(0,204,0))
+			background: -webkit-gradient(linear, center top, center bottom, from(#FFD700), color-stop(25%, #008000), color-stop(50%, #2F4F4F), color-stop(75%, #006400), to(#00FF00))			
 			background: -moz-linear-gradient(center top, #FFD700, #008000 25%, #2F4F4F 50%, #006400 75%, #7FFF00)
 		&:active
 			position: absolute
@@ -110,7 +131,9 @@ body
 			width: 50px
 			height: 30px
 			color: #000000
-			background: -webkit-gradient(linear, right center, left center, from(#00FF00), to(#FF0000))
+			opacity: 0.2
+			background: -o-linear-gradient(top,rgb(255,0,0),rgb(128,0,0) 50%,rgb(47,79,79) 75%,rgb(139,0,0))
+			background: -webkit-gradient(linear, center top, center bottom, from(#FF0000), color-stop(25%, #800000), color-stop(50%, #2F4F4F), color-stop(75%, #8B0000), to(#DC143C))
 			background: -moz-linear-gradient(center top, #FF0000, #800000 25%, #2F4F4F 50%, #8B0000 75%, #DC143C)
 	.input1
 		position: absolute
@@ -119,6 +142,7 @@ body
 		width: 150px
 		font-family: "Digital-7"
 		color: #7FFF00
+		background: -o-linear-gradient(left,rgb(0,0,0),rgb(0,0,51))
 		background: -moz-linear-gradient(right, #000000, #000033)
 		background: -webkit-gradient(linear, right center, left center, from(#000000), to(#000033))
 		text-shadow: 0px -5px 10px #FF6600
@@ -138,6 +162,7 @@ body
 		width: 150px
 		font-family: "Digital-7"
 		color: #00FFFF
+		background: -o-linear-gradient(left,rgb(0,0,0),rgb(0,0,51))
 		background: -moz-linear-gradient(right, #000000, #000033)
 		background: -webkit-gradient(linear, right center, left center, from(#000000), to(#000033)) 
 		border: 0px
