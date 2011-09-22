@@ -11,7 +11,10 @@ class CyberChat < Sinatra::Application
 	get "/fetch_messages" do
 		$messages.reverse.map do |m|
 		"<p>#{m}</p>"
-		end.join 
+		end.join
+	end
+	get "/style.css" do
+		sass :style
 	end
 	post "/messages" do
 		session[:name] = params[:name]
@@ -22,22 +25,17 @@ class CyberChat < Sinatra::Application
 		end
 		hour = Time.now.hour
 		minute = Time.now.min
-		if (0..14) === hour
-			hour = hour + 9
-		else
-			hour = hour - 15
+		case hour
+		when (0..14) then hour += 9
+		else hour -= 15
 		end
-		if (0..9) === minute
-			tiden = hour.to_s + ":" + "0" + minute.to_s
-		else
-			tiden = hour.to_s + ":" + minute.to_s
+		case minute
+		when (0..9) then tiden = hour.to_s + ':' + '0' + minute.to_s
+		else tiden = hour.to_s + ':' + minute.to_s
 		end
-		if params[:message].length != 0 and session[:name].length != 0
-			$messages << message + " " + tiden
+		if (params[:message].length != 0 and session[:name].length != 0)
+			$messages << message + ' ' + '-' + ' ' + tiden
 			"<p>#{message}</p>"
 		end
-	end
-	get "/style.css" do
-		sass :style 
 	end
 end
