@@ -28,6 +28,17 @@ class CyberChat < Sinatra::Application
 		message = params[:message]
 		message2 = message.scan(/\w+/)
 		
+		if message2[0] == 'deletemessage'
+			var = message2[1].to_i
+			$messages.delete_at(var)
+			message = ''
+			s = 1
+		elsif message2[0] == 'deleteallmessages'
+			$messages = []
+			message = ''
+			s = 1
+		end
+		
 		message2.each do |x|
 			l = message.length
 			if @@badwords.any? {|badwords| x.include? badwords}
@@ -39,7 +50,7 @@ class CyberChat < Sinatra::Application
 		if @@badnames.any? {|badnames| session[:name].downcase.include? badnames}
 			message = "Anonymous says: " + message
 		else
-			message = "#{session[:name].capitalize} says: " + message
+			message = "#{session[:name]} says: " + message
 		end
 		
 		hour = Time.now.hour
@@ -55,8 +66,9 @@ class CyberChat < Sinatra::Application
 		else tiden = hour.to_s + ':' + minute.to_s
 		end
 		
-		if (params[:message].length != 0 and session[:name].length != 0)
+		if (params[:message].length != 0 and session[:name].length != 0 and s != 1)
 			$messages << message + ' ' + '-' + ' ' + tiden
+			s = 0
 			"<p>#{message}</p>"
 		end
 		

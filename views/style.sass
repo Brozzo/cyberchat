@@ -1,8 +1,8 @@
 body
-	.cyberchat
+	.cyber_home
 		position: absolute
 		left: 0px
-		top: -20px
+		top: -22px
 		box-shadow: -28px -2px 8px #008000
 		-moz-box-shadow: -28px -2px 8px #008000
 		-webkit-box-shadow: -28px -2px 8px #008000
@@ -18,10 +18,11 @@ body
 			box-shadow: -23px 0px 8px #000080
 			-webkit-box-shadow: -23px 0px 8px #000080
 			-moz-box-shadow: -23px 0px 8px #000080
-	.cyber
+	.cyber_chat
 		position: absolute
 		left: -5px
-		top: -20px
+		top: -22px
+		z-index: 1
 		box-shadow: -28px -2px 8px #008000
 		-moz-box-shadow: -28px -2px 8px #008000
 		-webkit-box-shadow: -28px -2px 8px #008000
@@ -29,7 +30,6 @@ body
 		-moz-transition: all 1s ease-in-out
 		-o-transition: all 1s ease-in-out
 		&:hover
-
 			box-shadow: -23px 2px 8px #00FFCC
 			-webkit-box-shadow: -23px 2px 8px #00FFCC
 			-moz-box-shadow: -23px 2px 8px #00FFCC
@@ -39,7 +39,7 @@ body
 			-moz-box-shadow: -23px 0px 8px #800000
 	.welcome
 		color: #000000
-		position: absolute
+		position: relative
 		left: 20px
 		top: 210px
 		font-family: "chintzy cpu brk"
@@ -53,11 +53,14 @@ body
 	.area
 		position: absolute
 		left: 20px
-		top: 230px
+		top: 150px
 		font-family: "DJB BLUEPRINT"
 		font-size: 15
 		color: #A9A9A9
 		text-shadow: 0px 0px 5px #800000
+		-moz-transition: all 1s ease-in-out
+		&:active
+			font-size: 25
 	.link
 		position: absolute
 		left: 200px
@@ -92,8 +95,8 @@ body
 			-o-transform: scale(1)
 	.send
 		position: absolute
-		top: 147px
-		left: 162px
+		top: 145px
+		left: 160px
 		width: 50px
 		height: 35px
 		border: 1px solid grey
@@ -116,8 +119,8 @@ body
 		-webkit-border-bottom-left-radius: 2px
 		&:hover
 			position: absolute
-			top: 145px
-			left: 162px
+			top: 144px
+			left: 160px
 			width: 54px
 			height: 38px
 			color: #ADFF2F
@@ -126,8 +129,8 @@ body
 			background: -moz-linear-gradient(center top, #FFD700, #008000 25%, #2F4F4F 50%, #006400 75%, #7FFF00)
 		&:active
 			position: absolute
-			top: 153px
-			left: 162px
+			top: 150px
+			left: 160px
 			width: 50px
 			height: 30px
 			color: #000000
@@ -138,8 +141,8 @@ body
 	.input1
 		position: absolute
 		top: 145px
-		left: 10px
-		width: 150px
+		left: -40px
+		width: 200px
 		font-family: "Digital-7"
 		color: #7FFF00
 		background: -o-linear-gradient(left,rgb(0,0,0),rgb(0,0,51))
@@ -148,7 +151,7 @@ body
 		text-shadow: 0px -5px 10px #FF6600
 		border: 1px
 		-moz-border-radius-topleft: 5px
-		-moz-border-radius-topright: 5px
+		-moz-border-radius-topright: 0px
 		-moz-border-radius-bottomright: 0px
 		-moz-border-radius-bottomleft: 5px
 		-webkit-border-top-left-radius: 5px
@@ -157,9 +160,10 @@ body
 		-webkit-border-bottom-left-radius: 5px
 	.input2
 		position: absolute
-		top: 165px
-		left: 10px
-		width: 150px
+		top: 160px
+		left: -40px
+		width: 200px
+		height: 20px
 		font-family: "Digital-7"
 		color: #00FFFF
 		background: -o-linear-gradient(left,rgb(0,0,0),rgb(0,0,51))
@@ -169,9 +173,14 @@ body
 		text-shadow: 0px -5px 10px #FF6600
 		-moz-border-radius-topleft: 5px
 		-moz-border-radius-topright: 0px
-		-moz-border-radius-bottomright: 5px
+		-moz-border-radius-bottomright: 0px
 		-moz-border-radius-bottomleft: 5px
 		-webkit-border-top-left-radius: 5px
 		-webkit-border-top-right-radius: 0px
 		-webkit-border-bottom-right-radius: 5px
 		-webkit-border-bottom-left-radius: 5px
+	.send_thing
+		position: fixed
+		top: -130px
+		left: 80%
+		z-index: 1

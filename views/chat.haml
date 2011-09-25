@@ -1,7 +1,7 @@
-%h1.cyber
+%h1.cyber_chat
 	%img{:src => "images/cyberchat4.jpg"}
 %form#post
-	%p
+	%p.send_thing
 		%input.input1{:name => "name", :value => session[:name], :maxlength => "25", :placeholder => "your name"}
 		%input.input2#mess{:name => "message", :maxlength => "120", :placeholder => "message"}
 		%input.send{:type => "submit", :value => "SEND"}
