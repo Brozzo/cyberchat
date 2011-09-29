@@ -3,7 +3,7 @@ require "./badwords.rb"
 class CyberChat < Sinatra::Application
 	
 	enable :sessions
-	$messages =[]
+	$messages = []
 	
 	get "/" do
 		haml :startpage
@@ -26,20 +26,21 @@ class CyberChat < Sinatra::Application
 	post "/messages" do
 		session[:name] = params[:name]
 		message = params[:message]
-		message2 = message.scan(/\w+/)
+		command = params[:message].scan(/\w+/)
+		delete = false
 		
-		if message2[0] == 'deletemessage'
-			var = message2[1].to_i
-			$messages.delete_at(var)
-			message = ''
-			s = 1
-		elsif message2[0] == 'deleteallmessages'
+		if command[0].downcase == 'deletemessage'
+			if command[1].to_i != 0
+				num = command[1].to_i - 1
+				$messages.delete_at(num)
+				delete = true
+			end
+		elsif command[0].downcase == 'deleteallmessages'
 			$messages = []
-			message = ''
-			s = 1
+			delete = true
 		end
 		
-		message2.each do |x|
+		command.each do |x|
 			l = message.length
 			if @@badwords.any? {|badwords| x.include? badwords}
 				message = ''
@@ -62,13 +63,12 @@ class CyberChat < Sinatra::Application
 		end
 		
 		case minute
-		when (0..9) then tiden = hour.to_s + ':' + '0' + minute.to_s
-		else tiden = hour.to_s + ':' + minute.to_s
+		when (0..9) then time = hour.to_s + ':' + '0' + minute.to_s
+		else time = hour.to_s + ':' + minute.to_s
 		end
 		
-		if (params[:message].length != 0 and session[:name].length != 0 and s != 1)
-			$messages << message + ' ' + '-' + ' ' + tiden
-			s = 0
+		if (params[:message].length != 0 and session[:name].length != 0 and not delete)
+			$messages << message + ' ' + '-' + ' ' + time
 			"<p>#{message}</p>"
 		end
 		

@@ -1,28 +1,5 @@
 body
-	.cyber_home
-		position: absolute
-		left: 0px
-		top: -22px
-		box-shadow: -28px -2px 8px #008000
-		-moz-box-shadow: -28px -2px 8px #008000
-		-webkit-box-shadow: -28px -2px 8px #008000
-		-webkit-transition: all 1s ease-in-out
-		-moz-transition: all 1s ease-in-out
-		-o-transition: all 1s ease-in-out
-		&:hover
-			
-			box-shadow: -23px 2px 8px #00FFCC
-			-webkit-box-shadow: -23px 2px 8px #00FFCC
-			-moz-box-shadow: -23px 2px 8px #00FFCC	
-		&:active
-			box-shadow: -23px 0px 8px #000080
-			-webkit-box-shadow: -23px 0px 8px #000080
-			-moz-box-shadow: -23px 0px 8px #000080
-	.cyber_chat
-		position: absolute
-		left: -5px
-		top: -22px
-		z-index: 1
+	.cyber
 		box-shadow: -28px -2px 8px #008000
 		-moz-box-shadow: -28px -2px 8px #008000
 		-webkit-box-shadow: -28px -2px 8px #008000
@@ -37,6 +14,14 @@ body
 			box-shadow: -23px 0px 8px #800000
 			-webkit-box-shadow: -23px 0px 8px #800000
 			-moz-box-shadow: -23px 0px 8px #800000
+	#cyber_home
+		position: absolute
+		left: 0px
+		top: -22px
+	#cyber_chat
+		position: absolute
+		left: -5px
+		top: -22px
 	.welcome
 		color: #000000
 		position: relative
@@ -44,12 +29,7 @@ body
 		top: 210px
 		font-family: "chintzy cpu brk"
 		font-size: 300%
-		text-shadow: 0px -5px 5px #00CC00
-		-webkit-transition: all 1s ease-in-out
-		-moz-transition: all 1s ease-in-out
-		-o-transition: all 1s ease-in-out
-		&:hover
-			text-shadow: 0px -5px 5px #800000	
+		text-shadow: 0px -5px 5px #00CC00	
 	.area
 		position: absolute
 		left: 20px
@@ -122,7 +102,7 @@ body
 			top: 144px
 			left: 160px
 			width: 54px
-			height: 38px
+			height: 37px
 			color: #ADFF2F
 			background: -o-linear-gradient(top,rgb(255,215,0),rgb(0,128,0) 50%,rgb(47,79,79) 75%,rgb(0,204,0))
 			background: -webkit-gradient(linear, center top, center bottom, from(#FFD700), color-stop(25%, #008000), color-stop(50%, #2F4F4F), color-stop(75%, #006400), to(#00FF00))			
@@ -138,47 +118,26 @@ body
 			background: -o-linear-gradient(top,rgb(255,0,0),rgb(128,0,0) 50%,rgb(47,79,79) 75%,rgb(139,0,0))
 			background: -webkit-gradient(linear, center top, center bottom, from(#FF0000), color-stop(25%, #800000), color-stop(50%, #2F4F4F), color-stop(75%, #8B0000), to(#DC143C))
 			background: -moz-linear-gradient(center top, #FF0000, #800000 25%, #2F4F4F 50%, #8B0000 75%, #DC143C)
+	.input
+		font-family: "Digital-7"
+		background: -o-linear-gradient(left,rgb(0,0,0),rgb(0,0,51))
+		background: -moz-linear-gradient(right, #000000, #000033)
+		background: -webkit-gradient(linear, right center, left center, from(#000000), to(#000033)) 
+		border: 0px
+		text-shadow: 0px -5px 10px #FF6600
 	.input1
 		position: absolute
 		top: 145px
 		left: -40px
 		width: 200px
-		font-family: "Digital-7"
 		color: #7FFF00
-		background: -o-linear-gradient(left,rgb(0,0,0),rgb(0,0,51))
-		background: -moz-linear-gradient(right, #000000, #000033)
-		background: -webkit-gradient(linear, right center, left center, from(#000000), to(#000033))
-		text-shadow: 0px -5px 10px #FF6600
-		border: 1px
-		-moz-border-radius-topleft: 5px
-		-moz-border-radius-topright: 0px
-		-moz-border-radius-bottomright: 0px
-		-moz-border-radius-bottomleft: 5px
-		-webkit-border-top-left-radius: 5px
-		-webkit-border-top-right-radius: 5px
-		-webkit-border-bottom-right-radius: 0px
-		-webkit-border-bottom-left-radius: 5px
 	.input2
 		position: absolute
 		top: 160px
 		left: -40px
 		width: 200px
 		height: 20px
-		font-family: "Digital-7"
 		color: #00FFFF
-		background: -o-linear-gradient(left,rgb(0,0,0),rgb(0,0,51))
-		background: -moz-linear-gradient(right, #000000, #000033)
-		background: -webkit-gradient(linear, right center, left center, from(#000000), to(#000033)) 
-		border: 0px
-		text-shadow: 0px -5px 10px #FF6600
-		-moz-border-radius-topleft: 5px
-		-moz-border-radius-topright: 0px
-		-moz-border-radius-bottomright: 0px
-		-moz-border-radius-bottomleft: 5px
-		-webkit-border-top-left-radius: 5px
-		-webkit-border-top-right-radius: 0px
-		-webkit-border-bottom-right-radius: 5px
-		-webkit-border-bottom-left-radius: 5px
 	.send_thing
 		position: fixed
 		top: -130px
