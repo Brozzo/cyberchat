@@ -1,7 +1,10 @@
 %h1#cyber_home.cyber
 	%img{:src => "images/cyber.gif"}
 %p.welcome Welcome to Cyberchat!!!
-%input.link{:onclick => "window.location = 'http://cyberchat.heroku.com/chat'", :type => "button", :value => "Go on to Cyberchat"}/
+%form#login_thing{:action => "/login", :method => "post"}
+	%input.input.username{:name => "username", :maxlength => "15", :placeholder => "username"}
+	%input.input.password{:name => "password", :type => "password", :maxlength => "15", :placeholder => "password"}
+	%input.cyber_button#login{:type => "submit", :value => "LOGIN"}
 :css
 	body {
 	background-color:#000000;
@@ -13,4 +16,8 @@
 	@font-face {
 	font-family: "DJB BLUEPRINT";
 	src: url(fonts/DJBBLUEPRINT.ttf);
+	}
+	@font-face {
+	font-family: "Digital-7";
+	src: url(fonts/digital-7.ttf);
 	}

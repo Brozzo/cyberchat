@@ -9,7 +9,7 @@ $(document).ready (function() {
 	$("#post").submit(function(e){
   	e.preventDefault()
 		$.post("/messages", $(this).serialize() )
-		$("#mess").val("")
+		$("#input2").val("")
 	})
 	setInterval('fetchMessages()',1000
 )	

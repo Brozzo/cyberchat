@@ -24,13 +24,18 @@ body
 		top: -22px
 	.welcome
 		color: #000000
-		position: relative
+		position: absolute
 		left: 20px
 		top: 210px
 		font-family: "chintzy cpu brk"
 		font-size: 300%
-		text-shadow: 0px -5px 5px #00CC00	
-	.area
+		text-shadow: 0px -5px 5px #00CC00
+	.incorrect
+		position: absolute
+		left: 50px
+		top: -50px
+		font-size: 500%
+	#message_area
 		position: absolute
 		left: 20px
 		top: 150px
@@ -39,41 +44,7 @@ body
 		color: #A9A9A9
 		text-shadow: 0px 0px 5px #800000
 		-moz-transition: all 1s ease-in-out
-		&:active
-			font-size: 25
-	.link
-		position: absolute
-		left: 200px
-		top: 400px
-		font-family: "DJB BLUEPRINT"
-		font-size: 25
-		color: #830000
-		text-decoration: none
-		text-shadow: 0px 0px 5px #CCCC00
-		background-color: #000000
-		border: 0px
-		-webkit-transform: rotate(330deg)
-		-moz-transform: rotate(330deg)
-		-o-transform: rotate(330deg)
-		-webkit-transition: all 1s ease-in
-		-moz-transition: all 1s ease-in
-		-o-transition: all 1s ease-in
-		&:hover
-			color: #300000
-			font-style: italic
-			-moz-transform: rotate(360deg) scale(2)
-			-o-transform: rotate(360deg) scale(2)
-			-webkit-transform: rotate(360deg) scale(2)
-		&:active
-			color: #FFFF00
-			text-shadow: 0px 0px 5px #800000
-			font-style: italic
-			text-decoration: underline
-			left: 199
-			-moz-transform: scale(1)
-			-webkit-transform: scale(1)
-			-o-transform: scale(1)
-	.send
+	.cyber_button
 		position: absolute
 		top: 145px
 		left: 160px
@@ -125,21 +96,49 @@ body
 		background: -webkit-gradient(linear, right center, left center, from(#000000), to(#000033)) 
 		border: 0px
 		text-shadow: 0px -5px 10px #FF6600
-	.input1
+	#input1
 		position: absolute
 		top: 145px
 		left: -40px
 		width: 200px
 		color: #7FFF00
-	.input2
+	#input2
 		position: absolute
 		top: 160px
 		left: -40px
 		width: 200px
 		height: 20px
 		color: #00FFFF
-	.send_thing
+	.username
+		position: absolute
+		top: 400px
+		left: 600px
+		height: 20px
+		width: 200px
+		color: #FF22AA
+		font-family: "DJB BLUEPRINT"
+	.password
+		position: absolute
+		top: 419px
+		left: 600px
+		width: 200px
+		color: #00FFCC
+	#login
+		position: absolute
+		top: 401px
+		left: 800px
+	#logout
 		position: fixed
-		top: -130px
+		top: 92%
+		left: 90%
+		width: 80px
+		height: 20px
+	#send_thing
+		position: fixed
+		top: -100px
 		left: 80%
-		z-index: 1
+	#login_thing
+		position: absolute
+		top: 150px
+		left: 350px
+	background-color: #000000

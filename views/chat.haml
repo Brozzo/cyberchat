@@ -1,11 +1,12 @@
 %h1#cyber_chat.cyber
 	%img{:src => "images/cyberchat4.jpg"}
 %form#post
-	%p.send_thing
-		%input.input1.input{:name => "name", :value => session[:name], :maxlength => "25", :placeholder => "your name"}
-		%input#mess.input2.input{:name => "message", :maxlength => "120", :placeholder => "message"}
-		%input.send{:type => "submit", :value => "SEND"}
-	#message_area.area
+	%p#send_thing
+		%input.input#input1{:name => "name", :value => session[:name], :maxlength => "25", :placeholder => "your name"}
+		%input.input#input2{:name => "message", :maxlength => "120", :placeholder => "message"}
+		%input.cyber_button{:type => "submit", :value => "SEND"}
+	%input.cyber_button#logout{:type => "button", :onclick => "window.location = '../'", :value => "LOGOUT"}
+	#message_area
 :css
 	body {
 	background:url('http://cyberchat.heroku.com/images/cyber-global.jpg');

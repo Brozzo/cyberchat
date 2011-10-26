@@ -1,16 +1,36 @@
-require "./badwords.rb"
+require 'rubygems'
+require './badwords.rb'
+require 'sass'
 
 class CyberChat < Sinatra::Application
 	
+	set :username, '1337'
+	set :password, 'cyberchat'
+	set :admin_username, 'Masterofthis'
+	set :admin_password, 'gosebrozz1'
+	@@random = 1
+	@@admin, @@login = [false], [false]
 	enable :sessions
 	$messages = []
 	
+	get ("/style.css") {sass :style}
+	
 	get "/" do
+		@@login[0], @@admin[0] = false, false
+		@@random = 1
 		haml :startpage
 	end
 	
 	get "/chat" do
-		haml:chat
+		if @@random == 2
+			@@admin, @@login = [false], [false]
+			redirect "/"
+		elsif (@@login[0] or @@admin[0])
+			@@random = 2
+		else
+			redirect "/"
+		end
+		haml :chat
 	end
 	
 	get "/fetch_messages" do
@@ -19,25 +39,38 @@ class CyberChat < Sinatra::Application
 		end.join
 	end
 	
-	get "/style.css" do
-		sass :style
+	post "/login" do
+		if (params[:username] == settings.admin_username and params[:password] == settings.admin_password)
+			@@admin[0] = true
+			redirect "/chat"
+		elsif (params[:username] == settings.username and params[:password] == settings.password)
+			@@login[0] = true
+			redirect "/chat"
+		else
+			@@login[0], @@admin[0] = false, false
+			"<h1>Incorrect password!</h1>"
+		end
+		haml :login
 	end
 	
 	post "/messages" do
+		
 		session[:name] = params[:name]
-		message = params[:message]
-		command = params[:message].scan(/\w+/)
+		message = ': ' + params[:message]
+		command = params[:message].split
 		delete = false
 		
-		if command[0].downcase == 'deletemessage'
-			if command[1].to_i != 0
-				num = command[1].to_i - 1
-				$messages.delete_at(num)
+		if @@admin[0]
+			if command[0].downcase == 'deletemessage'
+				if command[1].to_i != 0
+					num = command[1].to_i - 1
+					$messages.delete_at(num)
+					delete = true
+				end
+			elsif command[0].downcase == 'deleteallmessages'
+				$messages = []
 				delete = true
 			end
-		elsif command[0].downcase == 'deleteallmessages'
-			$messages = []
-			delete = true
 		end
 		
 		command.each do |x|
@@ -49,28 +82,25 @@ class CyberChat < Sinatra::Application
 		end
 		
 		if @@badnames.any? {|badnames| session[:name].downcase.include? badnames}
-			message = "Anonymous says: " + message
+			message = "Anonymous says" + message
 		else
-			message = "#{session[:name]} says: " + message
+			message = "#{session[:name]} says" + message
 		end
 		
 		hour = Time.now.hour
 		minute = Time.now.min
 		
-		case hour
-		when (0..14) then hour += 9
-		else hour -= 15
+		case hour; when (0..14) then hour += 9; else hour -= 15; end
+		case minute; when (0..9) then time = hour.to_s + ':' + '0' + minute.to_s; else time = hour.to_s + ':' + minute.to_s; end
+		
+		if (@@admin[0] or @@login[0])
+			if (params[:message].length != 0 and session[:name].length != 0 and not delete)
+				$messages << message + ' - ' + time
+			end
 		end
 		
-		case minute
-		when (0..9) then time = hour.to_s + ':' + '0' + minute.to_s
-		else time = hour.to_s + ':' + minute.to_s
-		end
-		
-		if (params[:message].length != 0 and session[:name].length != 0 and not delete)
-			$messages << message + ' ' + '-' + ' ' + time
-			"<p>#{message}</p>"
-		end
-		
+		message_num = 0
+		$messages.each {message_num += 1}
+		if message_num > 40 then $messages.delete_at(0); end
 	end
 end
