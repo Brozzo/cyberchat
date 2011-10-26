@@ -23,7 +23,6 @@ class CyberChat < Sinatra::Application
 	
 	get "/chat" do
 		if @@num == 2
-			@@admin, @@login = false, false
 			redirect "/"
 		elsif (@@login or @@admin)
 			@@num = 2
