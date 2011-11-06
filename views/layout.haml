@@ -1,10 +1,23 @@
 %head
-	%link{:href => "/favicon.ico", :rel => "shortcut icon", :type => "image/x-icon"}/
+	%link{:href => "/favicon.ico", :rel => "shortcut icon", :type => "image/x-icon"}
+	%meta{:content => "cyberchat, chat", :name => "keywords"}
 %body
 	%h1
 		%title Cyberchat
 		%link{:type =>"text/css",:href => "style.css",:rel => "stylesheet"}
 		%script{:src => "https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"}
 		%script{:src => "/javascript/cyberchat.js"}
-%body
 	= yield
+:css
+	@font-face {
+	font-family: "Digital-7";
+	src: url(fonts/digital-7.ttf);
+	}
+	@font-face {
+	font-family: "chintzy cpu brk";
+	src: url(fonts/chintzy.ttf);
+	}
+	@font-face {
+	font-family: "DJB BLUEPRINT";
+	src: url(fonts/DJBBLUEPRINT.ttf);
+	}
