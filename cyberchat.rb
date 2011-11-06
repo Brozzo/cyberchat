@@ -82,7 +82,6 @@ class CyberChat < Sinatra::Application
 				else
 					message += "#{x} "
 				end
-				l.times {message += '*'}
 			end
 		end
 		
