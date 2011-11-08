@@ -8,21 +8,16 @@ class CyberChat < Sinatra::Application
 	set :password, 'cyberchat'
 	set :admin_username, 'Masterofthis'
 	set :admin_password, 'gosebrozz1'
-	@@admin, @@login = false, false
+	@login = false
 	enable :sessions
 	$messages = []
 	
 	get ("/style.css") {sass :style}
 	
-	get "/" do
-		session[:admin] = false
-		@@login, @@admin = false, false
-		haml :startpage
-	end
+	get ("/") {haml :startpage}
 	
 	get "/chat" do
-		if (@@admin or @@login or session[:admin] == 'admin' or session[:admin] == 'user')
-			@@login, @@admin = false, false
+		if (@login or session[:admin])
 		else
 			redirect "/"
 		end
@@ -30,26 +25,29 @@ class CyberChat < Sinatra::Application
 	end
 	
 	get "/fetch_messages" do
-		$messages.reverse.map do |m|
-			"<p>#{m}</p>"
-		end.join
+		$messages.reverse.each_with_index.map {|object, i| "<p class=\"m#{i}\">#{object}</p>"}.join
 	end
 	
 	post "/login" do
 		if (params[:username] == settings.admin_username and params[:password] == settings.admin_password)
-			@@admin = true
+			@login = true
 			session[:admin] = 'admin'
 			redirect "/chat"
 		elsif (params[:username] == settings.username and params[:password] == settings.password)
 			session[:admin] = 'user'
-			@@login = true
+			@login = true
 			redirect "/chat"
 		else
 			session[:admin] = false
-			@@login, @@admin = false, false
-			"<h1>Incorrect password!</h1>"
+			@login = false
 		end
 		haml :login
+	end
+	
+	get "/logout" do
+		session[:admin] = false
+		@login = false
+		redirect "/"
 	end
 	
 	post "/messages" do
