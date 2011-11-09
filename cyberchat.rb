@@ -11,9 +11,9 @@ class CyberChat < Sinatra::Application
 	@login = false
 	enable :sessions
 	$messages = []
+	$color = '#00FF00'
 	
 	get ("/style.css") {sass :style}
-	
 	get ("/") {haml :startpage}
 	
 	get "/chat" do
@@ -25,7 +25,7 @@ class CyberChat < Sinatra::Application
 	end
 	
 	get "/fetch_messages" do
-		$messages.reverse.each_with_index.map {|object, i| "<p class=\"m#{i}\">#{object}</p>"}.join
+		$messages.reverse.map {|m| "<p><font color=\"#{$color}\">#{m}</font></p>"}.join
 	end
 	
 	post "/login" do
@@ -57,17 +57,23 @@ class CyberChat < Sinatra::Application
 		command = message.split
 		delete = false
 		
-		if session[:admin] == 'admin'
-			if command[0].downcase == 'deletemessage'
+		if session[:admin] == 'admin' #admin commands
+			if command[0].downcase == '/delete'
 				if command[1].to_i != 0
 					num = command[1].to_i - 1
 					$messages.delete_at(num)
 					delete = true
 				end
-			elsif command[0].downcase == 'deleteallmessages'
+			elsif command[0].downcase == '/deleteall'
 				$messages = []
 				delete = true
 			end
+		end
+		
+		#free commands
+		if command[0].downcase == '/color'
+			$color = command[1]
+			delete = true
 		end
 		
 		if command.any? {|word| word =~ @@badwords}
@@ -84,9 +90,9 @@ class CyberChat < Sinatra::Application
 		end
 		
 		if session[:name].downcase =~ @@badnames
-			message = "Anonymous says: #{message}"
+			name = "Anonymous"
 		else
-			message = "#{session[:name]} says: #{message}"
+			name = "#{session[:name]}"
 		end
 		
 		hour = Time.now.hour
@@ -96,14 +102,22 @@ class CyberChat < Sinatra::Application
 		case minute; when (0..9) then time = "#{hour}:0#{minute}"
 		else time = "#{hour}:#{minute}"; end
 		
+		message = "C:\\cyberchat\\#{name}\\#{time}> #{message}"
+		
+		num, mess = 0, ''
+		message.each_char do |char|
+			num += 1
+			if (num == 60 or num == 114) then mess += char + '<br>'
+			else mess += char
+			end
+		end
+		
 		if (params[:message].length > 0 and session[:name].length > 0 and not delete)
-			message += " - #{time}"
-			$messages << message
+			$messages << mess
 		end
 		
 		message_num = 0
 		$messages.each {message_num += 1}
 		$messages.delete_at(0) if message_num > 40
-		"<p>#{message}</p>"
 	end
 end
