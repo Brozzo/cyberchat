@@ -4,6 +4,6 @@
 	%p#send_thing
 		%input.input#input1{:name => "name", :value => session[:name], :maxlength => "25", :placeholder => "your name"}
 		%input.input#input2{:name => "message", :maxlength => "120", :placeholder => "message"}
-		%input.cyber_button{:type => "submit", :value => "SEND"}
+		%input.cyber_button{:type => "submit", :onclick => "commands()", :value => "SEND"}
 	%input.cyber_button#logout{:type => "button", :onclick => "window.location = '../logout'", :value => "LOGOUT"}
 	#message_area

@@ -122,5 +122,6 @@ class CyberChat < Sinatra::Application
 		message_num = 0
 		$messages.each {message_num += 1}
 		$messages.delete_at(0) if message_num > 40
+		$messages.delete_if {|m| m =~ /C:\\cyberchat\\.*\\.*> \/commands/}
 	end
 end
