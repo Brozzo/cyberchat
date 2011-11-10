@@ -11,7 +11,7 @@ class CyberChat < Sinatra::Application
 	@login = false
 	enable :sessions
 	$messages = []
-	$color = '#00FF00'
+	$color = ['#00FF00', '#000000']
 	
 	get ("/style.css") {sass :style}
 	get ("/") {haml :startpage}
@@ -25,7 +25,7 @@ class CyberChat < Sinatra::Application
 	end
 	
 	get "/fetch_messages" do
-		$messages.reverse.map {|m| "<p><font color=\"#{$color}\">#{m}</font></p>"}.join
+		$messages.reverse.map {|m| "<p><font color=\"#{$color[0]}\">#{m}</font></p>"}.join + "<style type=\"text/css\">\nbody {\n\tbackground-color: #{$color[1]}\n}\n</style>"
 	end
 	
 	post "/login" do
@@ -72,7 +72,10 @@ class CyberChat < Sinatra::Application
 		
 		#free commands
 		if command[0].downcase == '/color'
-			$color = command[1]
+			$color[0] = command[1]
+			delete = true
+		elsif command[0].downcase == '/bgcolor'
+			$color[1] = command[1]
 			delete = true
 		end
 		
