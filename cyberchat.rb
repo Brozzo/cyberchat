@@ -1,6 +1,9 @@
 require 'rubygems'
+require 'data_mapper'
 require './badwords.rb'
 require 'sass'
+
+DataMapper.setup(:default, ENV['DATABASE_URL'] || "sqlite3://#{Dir.pwd}/cyberchat.db")
 
 class CyberChat < Sinatra::Application
 	
@@ -25,7 +28,7 @@ class CyberChat < Sinatra::Application
 	end
 	
 	get "/fetch_messages" do
-		$messages.reverse.map {|m| "<p><font color=\"#{$color[0]}\">#{m}</font></p>"}.join + "<style type=\"text/css\">\nbody {\n\tbackground-color: #{$color[1]}\n}\n</style>"
+		$messages.reverse.map {|m| "<p><font color=\"#{$color[0]}\">#{m}</font><br><input class=\"\" type=\"button\" value=\"-X-\"></input></p>"}.join + "<style type=\"text/css\">\nbody {\n\tbackground-color: #{$color[1]}\n}\n</style>"
 	end
 	
 	post "/login" do
