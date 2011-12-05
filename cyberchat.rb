@@ -3,7 +3,7 @@ require 'data_mapper'
 require './badwords.rb'
 require 'sass'
 
-DataMapper.setup(:default, ENV['DATABASE_URL'] || "sqlite3://#{Dir.pwd}/cyberchat.db")
+#DataMapper.setup(:default, ENV['DATABASE_URL'] || "sqlite3://#{Dir.pwd}/cyberchat.db")
 
 class CyberChat < Sinatra::Application
 	
