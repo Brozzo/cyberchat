@@ -59,6 +59,7 @@ PLATFORMS
   x86-mingw32
 
 DEPENDENCIES
+  dm-postgres-adapter
   data_mapper
   haml
   sinatra
