@@ -1,4 +1,4 @@
-require 'data_mapper'
+#require 'data_mapper'
 require './badwords.rb'
 require 'sass'
 
