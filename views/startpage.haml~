@@ -1,5 +1,5 @@
 %p.text This page is old, go to
-%a.text{:href => "http://zyberchat.herokuapp.com/", :target => "_self"} Zyberchat
+%a.text{:href => "http://www.tizag.com/", :target => "_self"} Zyberchat
 %form#login_thing{:action => "/login", :method => "post"}
 	%input.input.username{:name => "username", :maxlength => "15", :placeholder => "username"}
 	%input.input.password{:name => "password", :type => "password", :maxlength => "15", :placeholder => "password"}

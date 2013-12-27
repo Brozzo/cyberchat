@@ -1,0 +1,9 @@
+<<<<<<< HEAD
+require "bundler"
+Bundler.require
+
+require "./cyberchat.rb"
+run CyberChat
+=======
+require "./worldchat.rb"
+>>>>>>> added config.ru

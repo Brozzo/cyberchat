@@ -2,11 +2,7 @@ body
 
 	color: #00FF00
 	background-color: #000000
-	.text
-		position: relative
-		left: 0px
-		top: 0px
-		color: #FFFFFF
+	
 	.cyber
 		box-shadow: -28px -2px 8px #008000
 		-moz-box-shadow: -28px -2px 8px #008000
